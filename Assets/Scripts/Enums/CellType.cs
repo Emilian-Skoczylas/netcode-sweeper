@@ -1,6 +1,7 @@
 public enum CellType
 {
-    Empty = 0,
-    Mine = 1,
-    Number = 2
+    Invalid = 0,
+    Empty = 1,
+    Mine = 2,
+    Number = 3
 }

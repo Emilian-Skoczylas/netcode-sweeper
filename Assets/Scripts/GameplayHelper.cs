@@ -3,6 +3,12 @@ using UnityEngine;
 
 public static class GameplayHelper
 {
+    public static readonly (int x, int y)[] NeighborOffsets = {
+    (-1,-1), (-1,0), (-1,1),
+    (0,-1),         (0,1),
+    (1,-1),  (1,0),  (1,1)
+    };
+
     public static int CountAdjacentMines(Cell[,] state, Cell cell, int boardWidth, int boardHeight)
     {
         int count = 0;
@@ -28,5 +34,10 @@ public static class GameplayHelper
             Debug.Log("");
 
         return count;
+    }
+
+    public static bool IsCoordinateValid(int width, int height, int x, int y)
+    {
+        return x >= 0 && x < width && y >= 0 && y < height;
     }
 }

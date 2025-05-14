@@ -7,13 +7,17 @@ public class Cell
     public int Number { get; set; }
 
     public bool Revealed { get; set; }
-    public bool Flagged { get; private set; }
-    public bool Exploded { get; private set; }
+    public bool Flagged { get; set; }
+    public bool Exploded { get; set; }
 
 
     public Cell(int x, int y)
     {
         Position = new Vector3Int(x, y, 0);
         Type = CellType.Empty;
+    }
+    public Cell()
+    {
+        Type = CellType.Invalid;
     }
 }

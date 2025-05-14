@@ -14,6 +14,10 @@ public class Board : MonoBehaviour
     [SerializeField] private Tile _tileFlag;
     [SerializeField] private Tile[] _tileNumbers;
 
+    public Tilemap GetTilemap()
+    {
+        return _tilemap;
+    }
     private void Awake()
     {
         _tilemap = GetComponent<Tilemap>();
@@ -43,24 +47,12 @@ public class Board : MonoBehaviour
 
     private Tile GetTile(Cell cell)
     {
-        if (cell == null)
-        {
-            Debug.LogError("[GetTile] cell is null!");
+        if (cell == null) 
             return null;
-        }
 
-        if (cell.Revealed)
-        {
-            return GetRevealedTile(cell);
-        }
-        else if (cell.Flagged)
-        {
-            return _tileFlag;
-        }
-        else
-        {
-            return _tileUnknown;
-        }
+        return cell.Revealed ? GetRevealedTile(cell)
+             : cell.Flagged ? _tileFlag
+             : _tileUnknown;
     }
 
     private Tile GetRevealedTile(Cell cell)
@@ -72,7 +64,7 @@ public class Board : MonoBehaviour
                 result = _tileEmpty;
                 break;
             case CellType.Mine:
-                result = _tileMine;
+                result = cell.Exploded ? _tileExploded : _tileMine;
                 break;
 
             case CellType.Number:

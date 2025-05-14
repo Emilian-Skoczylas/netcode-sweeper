@@ -331,9 +331,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _board: {fileID: 1811538646}
-  _boardWidth: 16
-  _boardHeight: 16
-  _minesCount: 32
+  _boardWidth: 8
+  _boardHeight: 8
+  _minesCount: 8
 --- !u!4 &1241388192
 Transform:
   m_ObjectHideFlags: 0
