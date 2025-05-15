@@ -4,7 +4,7 @@ Welcome to Netcode Sweeper project - my implementation of the classic game Mines
 I decided to refresh the graphic layer gently and went for a cyberpunk style.
 
 # Demo
-You can play play the game [here](https://emicode.site).
+You can play play the game [here](https://emilian-skoczylas.github.io/netcode-sweeper/).
 
 # Quick Look
 ![image](https://github.com/user-attachments/assets/5d98a9dd-e543-4193-89a2-aa115592d296)
