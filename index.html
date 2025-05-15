@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
+  <style>
+  body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+  }
+</style>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity Web Player | Netcode Sweeper</title>
@@ -11,7 +18,7 @@
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      <canvas id="unity-canvas" width=1280 height=720 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -54,7 +61,7 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "Build_web";
+      var buildUrl = "Build";
       var loaderUrl = buildUrl + "/webgl_build.loader.js";
       var config = {
         arguments: [],
@@ -107,8 +114,8 @@
 
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        canvas.style.width = "1280px";
+        canvas.style.height = "720px";
       }
 
       document.querySelector("#unity-loading-bar").style.display = "block";
