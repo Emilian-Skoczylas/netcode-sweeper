@@ -24,7 +24,7 @@ public class BoardGenerator
             }
         }
     }
-    public void GenerateMines()
+    public void GenerateMines(int excludeX, int excludeY)
     {
         int totalTiles = _width * _height;
 
@@ -38,6 +38,9 @@ public class BoardGenerator
         {
             int x = rand.Next(_width);
             int y = rand.Next(_height);
+
+            if (x == excludeX && y == excludeY)
+                continue;
 
             if (_state[x, y].Type != CellType.Mine)
             {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameLogic
 {
     private Cell[,] _state;
+    private BoardGenerator _boardGenerator;
     private Board _board;
     private int _width;
     private int _height;
@@ -12,9 +13,10 @@ public class GameLogic
     public event Action OnGameOver;
     public event Action<bool> OnFlagPlaced;
 
-    public GameLogic(Cell[,] state, Board board, int width, int height)
+    public GameLogic(Cell[,] state, BoardGenerator generator, Board board, int width, int height)
     {
         _state = state;
+        _boardGenerator = generator;
         _board = board;
         _width = width;
         _height = height;
@@ -37,6 +39,13 @@ public class GameLogic
     public void Reveal()
     {
         Cell cell = GetCellFromWorldPoint();
+
+        if (!_board.MinesInitialized)
+        {
+            _boardGenerator.GenerateMines(cell.Position.x, cell.Position.y);
+            _boardGenerator.GenerateNumbers();
+            _board.FlagMinesInit();
+        }
 
         if (cell.Type == CellType.Invalid || cell.IsRevealed || cell.IsFlagged)
             return;

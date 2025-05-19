@@ -56,13 +56,11 @@ public class GameManager : MonoBehaviour
 
         _state = new Cell[_boardWidth, _boardHeight];
         _boardGenerator = new BoardGenerator(_state, _boardWidth, _boardHeight, _minesCount);
-        _gameLogic = new GameLogic(_state, _board, _boardWidth, _boardHeight);
+        _gameLogic = new GameLogic(_state, _boardGenerator, _board, _boardWidth, _boardHeight);
         _gameLogic.OnGameOver += OnGameOverEvent;
         _gameLogic.OnFlagPlaced += OnFlagPlaced;
 
         _boardGenerator.GenerateCells();
-        _boardGenerator.GenerateMines();
-        _boardGenerator.GenerateNumbers();
 
         _youWonObj.SetActive(false);
         _board.gameObject.SetActive(true);

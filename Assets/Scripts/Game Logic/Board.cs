@@ -15,6 +15,14 @@ public class Board : MonoBehaviour
     [SerializeField] private Tile _tileFlag;
     [SerializeField] private Tile[] _tileNumbers;
 
+    private bool _minesInitialized = false;
+    public bool MinesInitialized => _minesInitialized;
+
+    public void FlagMinesInit()
+    {
+        _minesInitialized = true;
+    }
+
     public Tilemap GetTilemap()
     {
         return _tilemap;
@@ -99,5 +107,6 @@ public class Board : MonoBehaviour
         {
             _tilemap.ClearAllTiles();
         }
+        _minesInitialized = false;
     }
 }
